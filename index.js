@@ -19,6 +19,7 @@ mongoose.connect(DB_String, {
 //Read
 app.get("/api/get", async (req, res) => {
   const records = await Todo.find({});
+  console.log(process.env.CUSTOMCONNSTR_mongodb_url);
   res.json(records);
 });
 

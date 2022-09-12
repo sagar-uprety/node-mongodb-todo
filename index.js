@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Todo = require("./models/todo");
 const PORT = process.env.PORT || 4000;
-const DB_String = proceess.env.CUSTOMCONNSTR_mongodb_url;
+const DB_String = process.env.CUSTOMCONNSTR_mongodb_url || "mongodb://mongouser1:sNOsWOkXvojeWWZVEImvqy3OgGSj1ysVilXCt9ml82UEhiwbeF0IfV28iaVM0EJzbX4WeGQyyUd9G6hZdIgvMQ==@mongouser1.mongo.cosmos.azure.com:10255/todo_db?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@mongouser1@";
 
 app.use("/", express.static(path.resolve(__dirname, "assets")));
 app.use(bodyParser.json());
@@ -19,7 +19,6 @@ mongoose.connect(DB_String, {
 //Read
 app.get("/api/get", async (req, res) => {
   const records = await Todo.find({});
-  console.log(process.env)
   res.json(records);
 });
 

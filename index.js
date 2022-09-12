@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Todo = require("./models/todo");
-const PORT = 3000;
+const PORT = process.env.PORT || 4000;
 
 app.use("/", express.static(path.resolve(__dirname, "assets")));
 app.use(bodyParser.json());
@@ -44,6 +44,6 @@ app.post("/api/delete", async (req, res) => {
   res.json({ status: "ok" });
 });
 
-app.listen(PORT, "localhost", () => {
+app.listen(PORT, () => {
   console.log(`Server running on PORT ${PORT}`);
 });

@@ -5,12 +5,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Todo = require("./models/todo");
 const PORT = process.env.PORT || 4000;
+const DB_String = proceess.env.CUSTOMCONNSTR_mongodb_url;
 
 app.use("/", express.static(path.resolve(__dirname, "assets")));
 app.use(bodyParser.json());
 
 //Azure Cosmos DB Config
-mongoose.connect(process.env.CUSTOMCONNSTR_mongodb_url, {
+mongoose.connect(DB_String, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }); 

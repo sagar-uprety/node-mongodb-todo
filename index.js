@@ -5,7 +5,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Todo = require("./models/todo");
 const PORT = process.env.PORT || 4000;
-const DB_String = process.env.CUSTOMCONNSTR_mongodb_url;
+// const DB_String = process.env.CUSTOMCONNSTR_mongodb_url;
+const DB_String = process.env.mongodb_url;
 
 app.use("/", express.static(path.resolve(__dirname, "assets")));
 app.use(bodyParser.json());

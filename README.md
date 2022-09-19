@@ -13,4 +13,5 @@ Node.js v16.0 or above is needed to run the application.
   - ```npm i```
   - ```npm start```
 - Create a .env file in the project root directory
-- Add a value DB_String``` value in *index.js* with actual CosmosDB Connection String to connect to your database or 
+- Inside .env file add the following key-value-pair
+  - ```mongodb_url=YOUR_DB_CONNECTION_STRING_FROM_COSMOS_DB```
